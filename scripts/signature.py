@@ -24,7 +24,7 @@ def binarize(img, threshold=127):
     """
     for i in range(img.size[0]):
         for j in range(img.size[1]):
-            if img.getpixel((i, j)) > 127:
+            if img.getpixel((i, j)) > threshold:
                 img.putpixel((i, j), 255)
             else:
                 img.putpixel((i, j), 0)
@@ -49,12 +49,12 @@ def make_transparent(img):
     return img
 
 
-def main(inFile, outFile, threshold=127):
+def main(inFile, outFile, threshold=190):
     """
     Main function to process image.
     """
     img = Image.open(inFile).convert('L')
-    img = binarize(img, threshold=200)
+    img = binarize(img, threshold=threshold)
     img = make_transparent(img)
     img.save(outFile)
     return
@@ -68,10 +68,11 @@ def parser():
                     help="Input image.")
     ap.add_argument("-o", "--output", type=str, default="result.png",
                     help="Output image.")
+    ap.add_argument("-th", "--threshold", type=int, default=127)
     args = vars(ap.parse_args())
-    return args['input'], args['output']
+    return args['input'], args['output'], args['threshold']
 
 
 if __name__ == "__main__":
-    inFile, outFile = parser()
-    main(inFile, outFile)
+    inFile, outFile, threshold = parser()
+    main(inFile, outFile, threshold=threshold)
