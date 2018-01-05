@@ -4,7 +4,7 @@ The present repo contains a Python script to process signature images, it return
 
 ## Setup
 
-The Python PIL ([Python Image Library](http://pillow.readthedocs.io/en/latest/)) package with [Python 3.6](https://www.python.org/downloads/) is used.
+The Python PIL ([Python Image Library](http://pillow.readthedocs.io/en/latest/)) package with [Python 3.6](https://www.python.org/downloads/) is used in this repo.
 
 To install PIL via pip:
 ```bash
