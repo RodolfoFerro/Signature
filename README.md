@@ -22,6 +22,7 @@ The main script is [`signature.py`](https://github.com/RodolfoFerro/Signature/bl
 
 ### TODO
 
+* Smooth image
 * Image orientation
 * Crop to get only signature
 
